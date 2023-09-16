@@ -1,5 +1,5 @@
 # WpfApp1
-맛있는 카페 애플리케이션
+맛있는 카페 애플리케이션 *****This application is only for portfolio Not commercial use.
 
 개발환경
 IDE : Visual Studio 2022
@@ -20,8 +20,15 @@ Database Project : Application Backend Logic
 Common Project : Application Custom Control & resources
 WpfApp1 : Application Main & Settings 
 
+기타
+Icon : Google Icon (MIT License)
+Contents Image : Pixabay Picture (Pixabay License)
 
 로그인 페이지
 
 <img width="200" height="200" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/a5f11c9b-5307-41c6-bcc0-d8c7c7e61cb2">
+
+메인 페이지
+
+<img width="200" height="200" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/8ea63456-347a-4bf2-8dae-4bdf77c2caa7">
 
