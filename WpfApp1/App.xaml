@@ -1,0 +1,54 @@
+﻿<Application x:Class="WpfApp1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:Common.converter;assembly=Common"
+             xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./mvvn.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converters:StrLengthConverter x:Key="StrLengthConverter" />
+            <converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+
+            <Style x:Key="sFontHaNa" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
+            </Style>
+
+            <Style x:Key="sFontHaNa_textbox" TargetType="{x:Type TextBox}">
+                <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
+            </Style>
+            
+            <!--TextBox Style-->
+            <Style x:Key="sPlatTextBox" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                            <Border>
+                                <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FocusVisualStyle">
+                    <Setter.Value>
+                        <Style>
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <ContentPresenter/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+
+        
+    </Application.Resources>
+</Application>
