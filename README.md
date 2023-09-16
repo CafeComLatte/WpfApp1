@@ -22,5 +22,6 @@ WpfApp1 : Application Main & Settings
 
 
 로그인 페이지
-<img width="752" alt="로그인페이지" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/a5f11c9b-5307-41c6-bcc0-d8c7c7e61cb2">
+
+<img width="400" height="400" alt="로그인페이지" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/a5f11c9b-5307-41c6-bcc0-d8c7c7e61cb2">
 
