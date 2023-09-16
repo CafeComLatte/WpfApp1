@@ -1,5 +1,6 @@
 # WpfApp1
-맛있는 카페 애플리케이션 *****This application is only for portfolio Not commercial use.
+맛있는 카페 애플리케이션    
+<span style="color:red">This application is only for portfolio Not commercial use.</span>
 
 개발환경
 IDE : Visual Studio 2022
