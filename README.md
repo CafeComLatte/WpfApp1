@@ -1,18 +1,18 @@
 # WpfApp1
 맛있는 카페 애플리케이션    
-<span style="color:red">This application is only for portfolio Not commercial use.</span>
-
-개발환경
-IDE : Visual Studio 2022
-.NET Framwork Version : 4.7.2
-Language : C# WPF
-
-사용 라이브러리 
+__This application is only for portfolio Not commercial use.__
+    
+## 개발환경    
+__IDE__ : Visual Studio 2022    
+__.NET Framwork Version__ : 4.7.2    
+__Language__ : C# WPF    
+    
+## 사용 라이브러리 
 CommunityToolkit.Mvvm Version 8.2.1
 Microsoft.Extensions.DependencyInjection Version 7.0.0.0
 Microsoft.Xaml.Behaviors Version 1.1.0.0
 
-어플리케이션 구조 (MVVM)
+## 어플리케이션 구조 (MVVM)
 Views Project : Application View
 ViewModels Project : Application ViewModel (UI Logic) 
 Services Project : Application ViewModel Dependency Logics & Popup
