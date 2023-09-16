@@ -7,26 +7,27 @@ __IDE__ : Visual Studio 2022
 __.NET Framwork Version__ : 4.7.2    
 __Language__ : C# WPF    
     
-## 사용 라이브러리 
-CommunityToolkit.Mvvm Version 8.2.1
-Microsoft.Extensions.DependencyInjection Version 7.0.0.0
-Microsoft.Xaml.Behaviors Version 1.1.0.0
-
-## 어플리케이션 구조 (MVVM)
-Views Project : Application View
-ViewModels Project : Application ViewModel (UI Logic) 
-Services Project : Application ViewModel Dependency Logics & Popup
-Models Project : Application Data Object
-Database Project : Application Backend Logic
-Common Project : Application Custom Control & resources
-WpfApp1 : Application Main & Settings 
-
-기타
-Icon : Google Icon (MIT License)
-Contents Image : Pixabay Picture (Pixabay License)
-
-로그인 페이지
-
+## 사용 라이브러리     
+__CommunityToolkit.Mvvm Version__ : 8.2.1    
+__Microsoft.Extensions.DependencyInjection Version__ : 7.0.0.0    
+__Microsoft.Xaml.Behaviors Version__ : 1.1.0.0    
+    
+## 어플리케이션 구조 (MVVM)    
+__Views Project__ : Application View    
+__ViewModels Project__ : Application ViewModel (UI Logic)     
+__Services Project__ : Application ViewModel Dependency Logics & Popup    
+__Models Project__ : Application Data Object    
+__Database Project__ : Application Backend Logic    
+__Common Project__ : Application Custom Control & resources    
+__WpfApp1__ : Application Main & Settings     
+        
+## 기타    
+__Icon__ : Google Icon (MIT License)    
+__Contents Image__ : Pixabay Picture (Pixabay License)    
+__Font__ : Naver Font (SIL Open Font License, Version 1.1)    
+        
+## User Interface    
+    
 <img width="200" height="200" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/a5f11c9b-5307-41c6-bcc0-d8c7c7e61cb2">
 
 메인 페이지
