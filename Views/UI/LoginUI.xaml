@@ -13,8 +13,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.RowSpan="2">
             <Image 
-               HorizontalAlignment="Stretch"
-               Source="/Common;component/Images/cafe.jpg"/>
+               Source="/Common;component/Images/login_picture.jpg"/>
         </StackPanel>
         <Border Grid.Row="1" CornerRadius="10" BorderThickness="1" Background="Transparent" Width="200" Height="150">
             <Border.Effect>
@@ -43,7 +42,7 @@
                 </TextBlock>
                 <PasswordBox Grid.Row="1" x:Name="xPassword" Background="White" FontSize="15" Padding="5" />
                 <TextBlock Grid.Row="1" x:Name="xPasswordHint" MouseLeftButtonUp="xPasswordHint_MouseLeftButtonUp" Text="비밀번호" Background="White" FontSize="15" Padding="5" Style="{StaticResource sFontHaNa}"/>
-                <Button Grid.Row="2" Content="로그인" Command="{Binding LoginCommand}" Background="RosyBrown" FontSize="15" Padding="5"/>
+                <Button Grid.Row="2" Content="로그인" Command="{Binding LoginCommand}" Foreground="LightGray" Background="RosyBrown" FontSize="25" Padding="5" Style="{StaticResource sFontHaNa_button}"/>
 
                 <Grid Grid.Row="3">
                     <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource sFontHaNa}">

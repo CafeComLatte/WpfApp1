@@ -8,6 +8,7 @@
         xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" 
         ButtonBase.Click="xMainWindow_Click"
         Height="600" Width="1000" MinHeight="600" MaxHeight="600" MinWidth="1000" MaxWidth="1000">

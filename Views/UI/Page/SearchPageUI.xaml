@@ -27,7 +27,7 @@
                         <ColumnDefinition Width="10*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="상품검색" OverridesDefaultStyle="True" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Text="상품검색" OverridesDefaultStyle="True" VerticalAlignment="Center" FontSize="20" Style="{StaticResource sFontHaNa}"/>
                     <TextBox Grid.Column="0" Background="Transparent" BorderThickness="0" VerticalAlignment="Center"/>
                     <Button Grid.Column="1" Background="Transparent" BorderThickness="0" Width="25" Height="25">
                         <Image Source="/Common;component/Images/cancel.png"/>

@@ -22,43 +22,44 @@
                     <RowDefinition Height="1.5*"/>
                     <RowDefinition Height="1.5*"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="0 0 0 1" Margin="30 5">
+                <Border Grid.Row="0" BorderBrush="Silver" BorderThickness="0 0 0 1" Margin="30 0 30 0">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                            <TextBlock Text="이기욱" FontSize="30" Style="{StaticResource sFontHaNa}"/>
-                            <TextBlock Text="rockcoe@naver.com" Style="{StaticResource sFontHaNa}"/>
+                            <TextBlock Text="Brown" FontSize="30" Style="{StaticResource sFontHaNa}"/>
+                            <TextBlock Text="browntest@browncafe.com" Style="{StaticResource sFontHaNa}"/>
                         </StackPanel>
-                        <Border Grid.Column="1" BorderThickness="1" BorderBrush="LightGray" Background="LightGray" CornerRadius="5" Width="40" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Button Content="수정" BorderThickness="0"/>
-                        </Border>
+                        <Button Grid.Column="1" Background="Transparent" BorderThickness="0">
+                            <Image Width="25" Height="25" Source="/Common;component/Images/edit.png"/>
+                        </Button>
+                        
                     </Grid>
                 </Border>
-                <Border Grid.Row="1" BorderThickness="0 0 0 1" BorderBrush="Silver" Margin="30 5">
+                <Border Grid.Row="1" BorderThickness="0 0 0 1" BorderBrush="Silver" Margin="30 0 30 0">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="010-5555-5555" VerticalAlignment="Center"/>
-                        <Border Grid.Column="1" BorderThickness="1" Background="LightGray" BorderBrush="LightGray" CornerRadius="5" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button Content="수정" BorderThickness="0"/>
-                        </Border>
+                        <Button Grid.Column="1" Background="Transparent" BorderThickness="0">
+                            <Image Width="25" Height="25" Source="/Common;component/Images/edit.png"/>
+                        </Button>
                     </Grid>
                 </Border>
-                <Border Grid.Row="2" Margin="30 5">
+                <Border Grid.Row="2" Margin="30 0 30 0">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="송파구 방이동 코오롱아파트 501호" VerticalAlignment="Center"/>
-                        <Border Grid.Column="1" BorderThickness="1" Background="LightGray" BorderBrush="LightGray" CornerRadius="5" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button Content="수정" BorderThickness="0"/>
-                        </Border>
+                        <TextBlock Grid.Column="0" Text="대한민국 경기도 성남시 수정구 성남대로" VerticalAlignment="Center"/>
+                        <Button Grid.Column="1" Background="Transparent" BorderThickness="0">
+                            <Image Width="25" Height="25" Source="/Common;component/Images/edit.png"/>
+                        </Button>
                     </Grid>
                 </Border>
 
@@ -81,8 +82,12 @@
                                 <ColumnDefinition Width="10*"/>
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="휴대전화"/>
-                            <RadioButton Grid.Column="1" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                <Image Source="/Common;component/Images/phone.png" Width="20" Height="20" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                                <TextBlock Text="휴대전화" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <CheckBox Grid.Column="1" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource OrangeSwitchStyle}"/>
+                            
                         </Grid>
                     </Border>
                     <Border Grid.Row="1" Margin="30 10">
@@ -91,8 +96,12 @@
                                 <ColumnDefinition Width="10*"/>
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="이메일"/>
-                            <ToggleButton Grid.Column="1" IsChecked="True" IsEnabled="True" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                <Image Source="/Common;component/Images/mail.png" Width="20" Height="20" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                                <TextBlock  Text="이메일" VerticalAlignment="Center"/>    
+                            </StackPanel>
+                            
+                            <CheckBox Grid.Column="1" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource OrangeSwitchStyle}"/>
                         </Grid>
                     </Border>
                     
