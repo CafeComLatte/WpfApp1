@@ -30,7 +30,7 @@ __Font__ : Naver Font (SIL Open Font License, Version 1.1)
     
 |로그인 페이지|메인 페이지|유저 페이지|    
 |-|-|-|
-|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/a5f11c9b-5307-41c6-bcc0-d8c7c7e61cb2">|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/8ea63456-347a-4bf2-8dae-4bdf77c2caa7">|<img width="300" height="300"  src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/a8e72025-b5d5-4f19-9d0d-4489979aefca">|
+|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/a5f11c9b-5307-41c6-bcc0-d8c7c7e61cb2">|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/8ea63456-347a-4bf2-8dae-4bdf77c2caa7">|<img width="300" height="300"  src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/93531c22-7728-47df-8d76-458d6d812e4b">|
 |상품검색 페이지|
 |<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/cdea7a67-8584-4352-a4b4-291da210687b">|
 
