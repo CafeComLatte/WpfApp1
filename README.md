@@ -34,7 +34,8 @@ __Font__ : Naver Font (SIL Open Font License, Version 1.1)
 
 |상품검색 페이지|구매내역 페이지|
 |-|-|
-|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/cc35d26d-dc47-475e-b455-22e7417451cd">|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/74e1d551-263b-4c9e-a7e6-b0de97449819">|
+|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/cc35d26d-dc47-475e-b455-22e7417451cd">|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/16987ab6-8ea0-40ac-96b2-1ae2f55a8626">
+|
 
 
 
