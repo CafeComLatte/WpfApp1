@@ -88,7 +88,7 @@
     <Compile Include="control\MenuItemControl.cs" />
     <Compile Include="control\EventProductItemControl.cs" />
     <Compile Include="control\ProductItemControl.cs" />
-    <Compile Include="control\ReciptItemControl.cs" />
+    <Compile Include="control\PurchaseItemControl.cs" />
     <Compile Include="converter\EnumToBooleanConverter.cs" />
     <Compile Include="converter\InputStrConverter.cs" />
     <Compile Include="converter\StrLengthConverter.cs" />

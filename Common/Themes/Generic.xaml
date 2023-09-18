@@ -6,47 +6,112 @@
     >
     <converter:InputStrConverter x:Key="InputStrConverter"/>
 
-    <Style TargetType="{x:Type ReciptItemControl}">
+    <Style TargetType="{x:Type ct:PurchaseItemControl}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ReciptItemControl}">
+                <ControlTemplate TargetType="{x:Type ct:PurchaseItemControl}">
                     <Grid Margin="0 13">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="0.5*"/>
                             <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Source="{Binding Image}"
-                               VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-                        <Grid Grid.Column="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="0.5*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Text="{Binding Name}">
+                        <Border Grid.Column="0" Margin="5">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock Text="{Binding PaymentDate, Converter={StaticResource InputStrConverter}}" HorizontalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="FontSize" Value="17"/>
+                                            <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <TextBlock  Text="{Binding PaymentTime, Converter={StaticResource InputStrConverter}}" HorizontalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="FontSize" Value="14"/>
+                                            <Setter Property="Foreground" Value="Gray"/>
+                                            <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Column="1" Margin="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="{Binding Image}" Width="150" Height="150"
+                               />
+                                <Grid Grid.Column="1" Margin="5 0 0 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="0.5*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="{Binding ProductName}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="FontSize" Value="30"/>
+                                                <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="1" Text="{Binding Contents}" TextTrimming="CharacterEllipsis" FontSize="10" Foreground="Gray">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="FontSize" Value="20"/>
+                                                <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="2" FontSize="10">
+                                    <Run Text="등록월일 : " />
+                                    <Run Text="{Binding SysDate, Converter={StaticResource InputStrConverter}}"/>
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="FontSize" Value="18"/>
+                                                <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        <Border Grid.Column="2" Margin="5">
+                            <TextBlock Text="{Binding SinglePrice}" VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
-                                        <Setter Property="FontSize" Value="30"/>
+                                        <Setter Property="FontSize" Value="20"/>
                                         <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
-                            <TextBlock Grid.Row="1" Text="{Binding Contents}" TextTrimming="CharacterEllipsis" FontSize="10" Foreground="Gray"/>
-                            <TextBlock Grid.Row="2" FontSize="10">
-                                <Run Text="구매일 : " />
-                                <Run Text="{Binding SysDate, Converter={StaticResource InputStrConverter}}"/>
+                        </Border>
+                        <Border Grid.Column="3" Margin="5">
+                            <TextBlock Text="{Binding Count}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="FontSize" Value="20"/>
+                                        <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
+                                    </Style>
+                                </TextBlock.Style>
                             </TextBlock>
-
-                        </Grid>
-                        <TextBlock Grid.Column="2" Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="FontSize" Value="30"/>
-                                    <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
+                        </Border>
+                        <Border Grid.Column="4" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding TotalPrice}">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="FontSize" Value="20"/>
+                                        <Setter Property="FontFamily" Value="/Common;component/Fonts/#Nanum HaNaSonGeurSsi"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Border>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -259,67 +324,4 @@
         </Setter>
     </Style>
     
-
-    <Style TargetType="{x:Type ct:MenuItemControl}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ct:MenuItemControl}">
-                    <Grid x:Name="PART_TEST" Width="140" VerticalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="70"/>
-                            <ColumnDefinition Width="70"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.Resources>
-                        </Grid.Resources>
-                        <Border Grid.Column="0" >
-                            <TextBlock Text="{Binding MenuID}" />
-                        </Border>
-                        <Border Grid.Column="1" >
-                            <TextBlock Text="{Binding MenuName}" />
-                        </Border>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-<!--
-    <Style TargetType="{x:Type ct:ProductItemControl}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ct:ProductItemControl}">
-                    <Grid x:Name="PART_ProductItem" Width="480" VerticalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80"/>
-                            <ColumnDefinition Width="80"/>
-                            <ColumnDefinition Width="80"/>
-                            <ColumnDefinition Width="80"/>
-                            <ColumnDefinition Width="80"/>
-                            <ColumnDefinition Width="80"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.Resources>
-                        </Grid.Resources>
-                        <Border Grid.Column="0" >
-                            <TextBlock Text="{Binding ProductName}" />
-                        </Border>
-                        <Border Grid.Column="1" >
-                            <TextBlock Text="{Binding Process}" />
-                        </Border>
-                        <Border Grid.Column="2" >
-                            <TextBlock Text="{Binding Weight}" />
-                        </Border>
-                        <Border Grid.Column="3" >
-                            <TextBlock Text="{Binding Height}" />
-                        </Border>
-                        <Border Grid.Column="4" >
-                            <TextBlock Text="{Binding Image}" />
-                        </Border>
-                        <Border Grid.Column="5" >
-                            <TextBlock Text="{Binding Register}" />
-                        </Border>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    -->
 </ResourceDictionary>

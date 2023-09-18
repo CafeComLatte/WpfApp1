@@ -26,7 +26,7 @@
                         <ColumnDefinition Width="10*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="영수증 검색" OverridesDefaultStyle="True" VerticalAlignment="Center" FontSize="20" Style="{StaticResource sFontHaNa}"/>
+                    <TextBlock Grid.Column="0" Text="구매내역 검색" OverridesDefaultStyle="True" VerticalAlignment="Center" FontSize="20" Style="{StaticResource sFontHaNa}"/>
                     <TextBox Grid.Column="0" Background="Transparent" BorderThickness="0" VerticalAlignment="Center"/>
                     <Button Grid.Column="1" Background="Transparent" BorderThickness="0" Width="25" Height="25">
                         <Image Source="/Common;component/Images/cancel.png"/>
@@ -51,18 +51,53 @@
                 </EventTrigger>
             </Border.Triggers>
         </Border>
-        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
-            <ItemsControl ItemsSource="{Binding ProductVOCollection}" Margin="30 0 70 10">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border HorizontalAlignment="Stretch" Height="140" BorderThickness="0 0 0 0.3" BorderBrush="LightGray">
-                            <control:ProductItemControl
-                                />
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding PurchaseCollection}" Margin="30 0 70 10">
+            <ItemsControl.Template>
+                <ControlTemplate TargetType="ItemsControl">
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="5*"/>
+                            </Grid.RowDefinitions>
+                            <Border BorderThickness="0 0 0 0.3" BorderBrush="LightGray">
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="날짜" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="1" Text="상품 명" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="2" Text="개당 금액" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="3"  Text="수량" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="4" Text="총 금액" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                            <ItemsPresenter Grid.Row="1"/>
+                        </Grid>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ItemsControl.Template>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border HorizontalAlignment="Stretch" Height="140" BorderThickness="0 0 0 0.3" BorderBrush="LightGray">
+                        <control:PurchaseItemControl
+                        PaymentDate="{Binding PaymentDate}"
+                        PaymentTime="{Binding PaymentTime}"
+                        SysDate="{Binding SysDate}"
+                        ProductName="{Binding ProductName}"
+                        Contents="{Binding Contents}"
+                        Count ="{Binding Count}"
+                        SinglePrice="{Binding SinglePrice}"
+                        TotalPrice="{Binding TotalPrice}"
+                        />
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
+    
 </UserControl>

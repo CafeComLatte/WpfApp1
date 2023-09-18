@@ -61,19 +61,28 @@ namespace ViewModels
             
             Console.WriteLine("MainViewModel 생성 : " + userService.UserInfo.Id);
 
-            ViewModel = Services.GetService(typeof(MainPageViewModel)) as MainPageViewModel;
-
-            try
-            {
-                //Data = product.getProductList();
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("ProductViewModel() Exception Error : " + e.Message);
-            }
+            
 
             WeakReferenceMessenger.Default.Register<object, string>(this, "ClosePopup", this.ClosePopup);
+        }
+
+        private AsyncRelayCommand _loadedCommand;
+        public AsyncRelayCommand LoadedCommand
+        {
+            get
+            {
+                return _loadedCommand ??
+                    (_loadedCommand = new AsyncRelayCommand(
+                        this.LoadedExecute));
+            }
+        }
+
+        private async Task LoadedExecute()
+        {
+            await MockUpData.InitMockUpData();
+
+            ViewModel = Services.GetService(typeof(MainPageViewModel)) as MainPageViewModel;
+
         }
 
         private RelayCommand<DataItem> _productSelectCommand;

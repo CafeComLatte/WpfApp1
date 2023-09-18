@@ -13,9 +13,30 @@ namespace Common.converter
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string str = value.ToString();
-            string formatedStr = str.Substring(0, 4) + "/" + str.Substring(4,2) + "/" + str.Substring(6,2);
-            Console.WriteLine(formatedStr); 
-            return formatedStr;
+
+            if (null == str && "".Equals(str))
+                return null;
+
+            if(str.Length == 8)
+            {
+                return ConvertDate(str);
+            }else if(str.Length == 4)
+            {
+                return ConvertTime(str);
+            }
+
+            return null;
+            
+        }
+
+        private string ConvertTime(string str)
+        {
+            return str.Substring(0, 2) + ":" + str.Substring(2, 2);
+        }
+
+        private string ConvertDate(string str)
+        {
+            return str.Substring(0, 4) + "/" + str.Substring(4, 2) + "/" + str.Substring(6, 2);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

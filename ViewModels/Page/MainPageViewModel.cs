@@ -1,5 +1,6 @@
 ﻿using Common;
 using CommunityToolkit.Mvvm.Input;
+using Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,31 +16,14 @@ namespace ViewModels.Page
 {
     public class MainPageViewModel : BaseViewModel
     {
-        Queue<EventProduct> list;
+        Queue<EventProduct> TotalEventProductlist;
         public MainPageViewModel() {
             Console.WriteLine("MainPageViewModel 생성자 ");
 
-            EventProductCollection = new ObservableCollection<EventProduct>();
-
-            list = new Queue<EventProduct>();
-
-            list.Enqueue(new EventProduct { Id = "1", Name="마카롱", Price="5,000원", Image= "/Common;component/Images/" + "macarons.jpg"});
-            list.Enqueue(new EventProduct { Id = "2", Name = "펜케이크", Price="3,000원", Image = "/Common;component/Images/" + "pancakes.jpg" });
-            list.Enqueue(new EventProduct { Id = "3", Name = "커피케이크", Price="7,000원", Image = "/Common;component/Images/" + "cake.jpg" });
-            list.Enqueue(new EventProduct { Id = "4", Name = "크루아상", Price = "5,000원", Image = "/Common;component/Images/" + "croissant.jpg" });
-            list.Enqueue(new EventProduct { Id = "5", Name = "라떼", Price = "3,000원", Image = "/Common;component/Images/" + "latte.jpg" });
-
-            EventProductCollection.Add(new EventProduct { Id = "1", Name = "마카롱", Price = "5,000원", Image = "/Common;component/Images/" + "macarons.jpg" });
-            EventProductCollection.Add(new EventProduct { Id = "2", Name = "펜케이크", Price = "3,000원", Image = "/Common;component/Images/" + "pancakes.jpg" });
-            EventProductCollection.Add(new EventProduct { Id = "3", Name = "커피케이크", Price = "7,000원", Image = "/Common;component/Images/" + "cake.jpg" });
-            EventProductCollection.Add(new EventProduct { Id = "4", Name = "크루아상", Price = "5,000원", Image = "/Common;component/Images/" + "croissant.jpg" });
-            for(int i=0; i<4; i++)
-            {
-                EventProductCollection.Add(list.ToArray().ToList()[i]);
-            }
-
-            EventContentCollection = new ObservableCollection<EventContent>();
-            EventContentCollection.Add(new EventContent { Image = "/Common;component/Images/event1.png" });
+            TotalEventProductlist = new Queue<EventProduct>(MockUpData.EventProducts);
+            EventProductCollection = new ObservableCollection<EventProduct>(MockUpData.EventProducts.Take(4).ToList());
+            
+            EventContentCollection = new ObservableCollection<EventContent>(MockUpData.EventContents);
         }
 
         private ObservableCollection<EventProduct> _eventProductCollection;
@@ -71,8 +55,8 @@ namespace ViewModels.Page
         {
             for (int i = 0; i < 4; i++)
             {
-                list.Dequeue();
-                list.Enqueue(EventProductCollection[i]);
+                TotalEventProductlist.Dequeue();
+                TotalEventProductlist.Enqueue(EventProductCollection[i]);
                 
             }
             
@@ -80,25 +64,11 @@ namespace ViewModels.Page
             
             for (int i = 0; i < 4; i++)
             {
-                EventProductCollection.Add(list.ToArray().ToList()[i]);
+                EventProductCollection.Add(TotalEventProductlist.ToArray().ToList()[i]);
             }
 
         }
 
     }
 
-    public class EventContent
-    {
-        public string Image { get; set; }   
-    }
-
-    public class EventProduct
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-
-        public string Price { get; set; }
-
-        public string Image { get; set; }
-    }
 }
