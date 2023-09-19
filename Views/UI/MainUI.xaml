@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Views.UI"
              xmlns:control="clr-namespace:Common.control;assembly=Common"
+             xmlns:converter="clr-namespace:Common.converter;assembly=Common"
              xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
@@ -13,6 +14,7 @@
             <Setter Property="Text" Value="제품 명을 입력하세요."/>
             <Setter Property="Width" Value="200"/>
         </Style>
+        
     </UserControl.Resources>
 
     <behaviors:Interaction.Triggers>
@@ -21,6 +23,7 @@
         </behaviors:EventTrigger>
     </behaviors:Interaction.Triggers>
 
+    
 
     <Grid>
         <Grid.RowDefinitions>
@@ -28,6 +31,23 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="xLoading" Grid.RowSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image x:Name="imgLoading" HorizontalAlignment="Center" Height="130" VerticalAlignment="Center" Width="130" Source="/Common;component/Images/loading.png"/>
+            <Label Content="Loading" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
+                <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding LoadingShow, Converter={StaticResource xBooleanToVisibilityConverter}}" Value="Visible">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding LoadingShow, Converter={StaticResource xBooleanToVisibilityConverter}}" Value="Collapsed">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                    
+                </Style>
+            </Grid.Style>
+        </Grid>
         <Border Grid.Row="0" x:Name="xHeader" Background="gray">
             <TextBlock Text="맛있는 카페" FontSize="40" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock.Style>

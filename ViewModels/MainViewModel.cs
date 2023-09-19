@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Database;
 using ViewModels.Page;
+using System.Threading;
 
 namespace ViewModels
 {
@@ -61,9 +62,13 @@ namespace ViewModels
             
             Console.WriteLine("MainViewModel 생성 : " + userService.UserInfo.Id);
 
-            
-
             WeakReferenceMessenger.Default.Register<object, string>(this, "ClosePopup", this.ClosePopup);
+        }
+        private Boolean _loadingShow;
+        public Boolean LoadingShow
+        {
+            get => _loadingShow;
+            set => SetProperty(ref _loadingShow, value);
         }
 
         private AsyncRelayCommand _loadedCommand;
@@ -79,7 +84,11 @@ namespace ViewModels
 
         private async Task LoadedExecute()
         {
+            LoadingShow = true;
+
             await MockUpData.InitMockUpData();
+
+            //LoadingShow = false;
 
             ViewModel = Services.GetService(typeof(MainPageViewModel)) as MainPageViewModel;
 

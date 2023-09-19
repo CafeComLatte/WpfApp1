@@ -9,6 +9,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="./mvvn.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="xBooleanToVisibilityConverter"/>
             <converters:StrLengthConverter x:Key="StrLengthConverter" />
             <converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
 
