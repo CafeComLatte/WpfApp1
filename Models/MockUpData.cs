@@ -37,7 +37,7 @@ namespace Models
                 Products.Add(new ProductVO { Id = "7", Name = "아메리카노", Price = "2,500원", Image = "/Common;component/Images/" + "americano.jpg", Contents = "고소하고 풍미가 느껴지는 아메리카노입니다.", SysDate = "20230916" });
                 Products.Add(new ProductVO { Id = "8", Name = "초콜릿케이크", Price = "5,000원", Image = "/Common;component/Images/" + "chocolatecake.jpg", Contents = "고급 초콜릿을 사용한 담백하고 달콤한 초콜릿케이크입니다.", SysDate = "20230916" });
 
-                Purchases.Add(new PurchaseVO { PaymentDate = "20230918", PaymentTime = "1450", SysDate = "20230916", ProductName = "아메리카노", Contents = "고소하고 풍미가 느껴지는 아메리카노입니다.", Count = "5", SinglePrice = "2,500원", TotalPrice = "12,500원", Image = "/Common;component/Images/americano.jpg" });
+                Purchases.Add(new PurchaseVO { PaymentDate = "20230918", PaymentTime = "1450", SysDate = "20230916", ProductName = "아메리카노", Contents = "고소하고 풍미가 느껴지는 아메리카노입니다.", Count = "5", Price = "2,500원", TotalPrice = "12,500원", Image = "/Common;component/Images/americano.jpg" });
 
             });
             

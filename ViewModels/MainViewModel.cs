@@ -88,10 +88,9 @@ namespace ViewModels
 
             await MockUpData.InitMockUpData();
 
-            //LoadingShow = false;
+            LoadingShow = false;
 
             ViewModel = Services.GetService(typeof(MainPageViewModel)) as MainPageViewModel;
-
         }
 
         private RelayCommand<DataItem> _productSelectCommand;
@@ -110,7 +109,7 @@ namespace ViewModels
 
 
             _dialogService.SetSize(500, 500);
-            _dialogService.SetVM(new PopViewModel(item, CustomEnum.Product.SELECTED), "Product Details");
+            _dialogService.SetVM(new PopViewModel(null),"Product Details");
             _dialogService.Dialog.Show();
         }
 
@@ -134,6 +133,7 @@ namespace ViewModels
                     (_sideMenuCommand = new RelayCommand<string>(this.GoMenu));
             }
         }
+
 
         private void GoMenu(string MenuName)
         {
@@ -166,7 +166,7 @@ namespace ViewModels
         {
             Console.WriteLine("RegisterExecute");
             _dialogService.SetSize(500, 500);
-            _dialogService.SetVM(new PopViewModel(null, CustomEnum.Product.UNSELECTED), "New Product Registration");
+            _dialogService.SetVM(new PopViewModel(null),"New Product Registration");
             _dialogService.Dialog.Show();
         }
 

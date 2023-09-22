@@ -21,4 +21,18 @@ namespace Views.UI.Windows
         Action CloseCallback { get; set; }
     }
 
+    public interface IPurchaseDetailsDialog
+    {
+
+        string Title { get; set; }
+
+        double Width { get; set; }
+        double Height { get; set; }
+        object DataContext { get; set; }
+        void Show();
+        void Close();
+
+        void Hide();
+        Action CloseCallback { get; set; }
+    }
 }

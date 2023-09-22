@@ -46,7 +46,7 @@ namespace ViewModels
         private void LoginExecute()
         {
 
-            MessageBox.Show("Bubble Test", "Yes-No", MessageBoxButton.YesNo);
+            //MessageBox.Show("Bubble Test", "Yes-No", MessageBoxButton.YesNo);
 
             Console.WriteLine("Login Click!");
 

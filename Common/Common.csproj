@@ -92,6 +92,7 @@
     <Compile Include="converter\BooleanConverter.cs" />
     <Compile Include="converter\EnumToBooleanConverter.cs" />
     <Compile Include="converter\InputStrConverter.cs" />
+    <Compile Include="converter\StringEmptyConverter.cs" />
     <Compile Include="converter\StrLengthConverter.cs" />
   </ItemGroup>
   <ItemGroup>

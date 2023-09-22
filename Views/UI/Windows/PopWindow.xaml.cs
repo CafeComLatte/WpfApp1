@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Windows;
 
 namespace Views.UI.Windows
@@ -25,5 +26,24 @@ namespace Views.UI.Windows
             this.Hide();
         }
 
+        private void xMinusButton_Click(object sender, RoutedEventArgs e)
+        {
+            Int64 count = Int64.Parse(xCountText.Text.ToString());
+            if(count > 0)
+            {
+                xCountText.Text = (count - 1).ToString();                
+            }
+        }
+
+        private void xPlusButton_Click(object sender, RoutedEventArgs e)
+        {
+            Int64 count = Int64.Parse(xCountText.Text.ToString());
+            Console.WriteLine(xCountText.Text.ToString());
+            if(count < 100)
+            {
+                
+                xCountText.Text = (count + 1).ToString();
+            }
+        }
     }
 }

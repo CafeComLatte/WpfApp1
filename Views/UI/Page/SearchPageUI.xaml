@@ -1,4 +1,5 @@
 ﻿<UserControl x:Class="Views.UI.Page.SearchPageUI"
+             x:Name="xSearchPageUI"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -48,7 +49,7 @@
                             <ColorAnimation  Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" To="LightGray" Duration="0:0:0:0.3" />
                         </Storyboard>
                     </BeginStoryboard>
-                    
+
                 </EventTrigger>
             </Border.Triggers>
         </Border>
@@ -58,12 +59,13 @@
                     <DataTemplate>
                         <Border HorizontalAlignment="Stretch" Height="140" BorderThickness="0 0 0 0.3" BorderBrush="LightGray">
                             <control:ProductItemControl
+                                ProductSearchCommand="{Binding ElementName=xSearchPageUI, Path=DataContext.MyProductSearchCommand}"
+                                ProductSearchCommandParameter="{Binding .}"
                                 />
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-    
     </Grid>
 </UserControl>

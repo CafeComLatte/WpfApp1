@@ -1,5 +1,7 @@
 ﻿using Common;
+using CommunityToolkit.Mvvm.Input;
 using Models;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +14,7 @@ namespace ViewModels.Page
     public class PurchasePageViewModel : BaseViewModel
     {
         public static IServiceProvider Services;
-        public PurchasePageViewModel(IServiceProvider service) {
+        public PurchasePageViewModel(IServiceProvider service, IPurchaseDetailsService purchaseDetailsservice) {
             Services = service;
 
             PurchaseCollection = new ObservableCollection<PurchaseVO>(MockUpData.Purchases);
@@ -25,5 +27,19 @@ namespace ViewModels.Page
             set => SetProperty(ref _purchaseCollection, value);
         }
 
+        private RelayCommand<PurchaseVO> _purchaseSearchCommand;
+        public RelayCommand<PurchaseVO> PurchaseSearchCommand
+        {
+            get
+            {
+                return _purchaseSearchCommand ??
+                    (_purchaseSearchCommand = new RelayCommand<PurchaseVO>(this.PurchaseSearchExecute));
+            }
+        }
+
+        private void PurchaseSearchExecute(PurchaseVO purchase)
+        {
+            Console.WriteLine("PurchaseSearchExecute");
+        }
     }
 }

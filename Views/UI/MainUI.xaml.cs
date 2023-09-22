@@ -46,9 +46,17 @@ namespace Views.UI
 
         private void XLoading_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            
-            
-            
+            if((bool)e.NewValue != true)
+            {
+                this.xStoryboard.Stop();
+            }
+            else
+            {
+                this.xStoryboard.Begin();
+            }
+
+
+
         }
     }
 }

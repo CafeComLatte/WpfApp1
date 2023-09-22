@@ -30,24 +30,13 @@ namespace ViewModels
 
         
 
-        public PopViewModel(DataItem item, CustomEnum.Product selectFlag) {
+        public PopViewModel(ProductVO product) {
             Console.WriteLine("PopViewModel");
-            this.selectFlag = selectFlag;
-            if(selectFlag == CustomEnum.Product.SELECTED)
-            {
-                Item = item;
-                _originItem = new OriginDataItem(item);               
-                Console.WriteLine("Item.ProductName : " + _originItem.OriginProductName);
-                
-                DeleteFlag = true;
-
-            }
-            else
-            {
-                DeleteFlag = false;
-            }
             
+            Product = product;
         }
+
+        public ProductVO Product { get; set; }
 
         private BaseViewModel _popupVM;
 
@@ -55,6 +44,14 @@ namespace ViewModels
         {
             get => _popupVM;
             set => SetProperty(ref _popupVM, value);
+        }
+
+        private string _purchaseCount;
+
+        public string PurchaseCount
+        {
+            get => _purchaseCount;
+            set => SetProperty(ref _purchaseCount, value);
         }
 
         private RelayCommand _closeCommand;
@@ -97,36 +94,6 @@ namespace ViewModels
                         }));
             }
         }
-
-        private RelayCommand _deleteCommand;
-        public RelayCommand DeleteCommand
-        {
-            get
-            {
-                return _deleteCommand ??
-                    (_deleteCommand = new RelayCommand(
-                        () =>
-                        {
-                            Console.WriteLine("DeleteCommand : " + Item.ProductName);
-
-                            if (product.deleteProduct(Item) > 0)
-                            {
-                                MessageBox.Show("삭제 성공!!!", "데이터처리 결과");
-                                WeakReferenceMessenger.Default.Send<object, string>("ClosePopup");
-                                PopupVM = null;
-                            }
-                            else
-                            {
-                                MessageBox.Show("삭제 실패", "데이터처리 결과");
-                            }
-
-                            
-                        }));
-            }
-        }
-
-
-        
 
     }
 }

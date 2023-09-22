@@ -47,10 +47,12 @@ namespace WpfApp1
         {
             var services = new ServiceCollection();
 
+            services.AddSingleton<IPurchaseDetailsService, PurchaseDetailsService>();
             services.AddSingleton<IDialogService, DialogService>();
             services.AddSingleton<ILoginService, LoginService>();
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IDialog, PopWindow>();
+            services.AddSingleton<IPurchaseDetailsDialog, PurchaseDetailsPopWindow>();
 
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<LoginViewModel>();

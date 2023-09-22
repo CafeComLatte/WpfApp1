@@ -3,15 +3,18 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" Height="450" Width="800">
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converters="clr-namespace:Common.converter;assembly=Common"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" Height="600" Width="1000">
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="5"
                       CaptionHeight="0"
                       CornerRadius="5"
                       GlassFrameThickness="5"/>
     </WindowChrome.WindowChrome>
+    
     <Window.Resources>
+        <converters:StringEmptyConverter x:Key="StringEmptyConverter" />
         <Style x:Key="sLabel" TargetType="{x:Type TextBlock}">
             <Setter Property="Background" Value="LightGray"/>
             <Setter Property="Margin" Value="5"/>
@@ -98,10 +101,10 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Background="RosyBrown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <TextBlock 
                        Text="{Binding ElementName=xPopWindow, Path=Title}"
@@ -110,19 +113,12 @@
                        VerticalAlignment="Top"
                        Foreground="#FF000000"
                        Margin="5"
-                       Padding="5"/>
+                       Padding="5" Style="{StaticResource sFontHaNa}"/>
                 
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 
-                
-                <Button Content="Delete" Width="50" Height="30"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Margin="5"
-                        Padding="5"
-                        Style="{DynamicResource sButton_Delete}"
-                        Command="{Binding DeleteCommand}"/>
+                <!--
                 <Button Width="50" Height="30"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
@@ -132,7 +128,7 @@
                         Command="{Binding SaveCommand}">
 
                 </Button>
-                
+                -->
                 <Button x:Name="xCloseButton" Style="{DynamicResource sButton_Close}"
                         IsTabStop="False"
                         Click="xCloseButton_Click"
@@ -145,45 +141,49 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-            </Grid.RowDefinitions>
-            <Border Grid.Row="0" BorderThickness="0 1 0 1" BorderBrush="LightGray"/>
-            <StackPanel Grid.Row="0" Orientation="Horizontal" >
-                <TextBlock Text="Product Name" Style="{DynamicResource sLabel}"/>
-                <TextBox Text="{Binding Item.ProductName}" Style="{DynamicResource sText}" />
-            </StackPanel>
-            <Border Grid.Row="1" BorderThickness="0 0 0 1" BorderBrush="LightGray"/>
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <TextBlock Text="Process Name" Style="{DynamicResource sLabel}"/>
-                <TextBox Text="{Binding Item.Process}" Style="{DynamicResource sText}" />
-            </StackPanel>
-            <Border Grid.Row="2" BorderThickness="0 0 0 1" BorderBrush="LightGray"/>
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <TextBlock Text="Weight" Style="{DynamicResource sLabel}"/>
-                <TextBox Text="{Binding Item.Weight}" Style="{DynamicResource sText}"/>
-            </StackPanel>
-            <Border Grid.Row="3" BorderThickness="0 0 0 1" BorderBrush="LightGray"/>
-            <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <TextBlock Text="Height" Style="{DynamicResource sLabel}"/>
-                <TextBox Text="{Binding Item.Height}" Style="{DynamicResource sText}"/>
-            </StackPanel>
-            <Border Grid.Row="4" BorderThickness="0 0 0 1" BorderBrush="LightGray"/>
-            <StackPanel Grid.Row="4" Orientation="Horizontal">
-                <TextBlock Text="Image" Style="{DynamicResource sLabel}"/>
-                <TextBox Text="{Binding Item.Image}" Style="{DynamicResource sText}"/>
-            </StackPanel>
-            <Border Grid.Row="5" BorderThickness="0 0 0 1" BorderBrush="LightGray" />
-            <StackPanel Grid.Row="5" Orientation="Horizontal">
-                <TextBlock Text="Register" Style="{DynamicResource sLabel}"/>
-                <TextBox Text="{Binding Item.Register}" Style="{DynamicResource sText}"/>
-            </StackPanel>
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="{Binding Product.Image}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="15"/>
+            <Grid Grid.Column="1" Margin="35 35 35 15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*" />
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.7*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding Product.Name}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="35" Style="{StaticResource sFontHaNa}"/>
+                <TextBlock Grid.Row="1" Text="{Binding Product.Price}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Style="{StaticResource sFontHaNa}"/>
+                <Rectangle Grid.Row="2" Fill="LightGray" Width="430" Height="0.3" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <Grid Grid.Row="3" Background="#f9f9f9f9" Margin="3 7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="수량" Margin="10 5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Style="{StaticResource sFontHaNa}" Foreground="Black"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Margin="10 10 10 5" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
+                            <Button x:Name="xMinusButton" Content="-" Height="20" Width="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="xMinusButton_Click"/>
+                            <TextBox x:Name="xCountText" Text="{Binding PurchaseCount, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringEmptyConverter}, Mode=OneWay}" Width="20" Height="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                            <Button x:Name="xPlusButton" Content="+" Height="20" Width="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="xPlusButton_Click"/>
+                        </StackPanel>
+                        <TextBlock Grid.Column="1" Text="5,000원" Margin="10 5" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" Style="{StaticResource sFontHaNa}"/>
+                    </Grid>
+                </Grid>
+                <Rectangle Grid.Row="4" Fill="LightGray" Width="430" Height="0.3" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="5" Text="총 금액 : 5,000원" Margin="10 5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" Style="{StaticResource sFontHaNa}"/>
+                <Border Grid.Row="6" Margin="10"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="25" Background="LightGray" CornerRadius="10" BorderBrush="LightGray" BorderThickness="1">
+                    <Button Content="구매하기" BorderThickness="0" Background="Transparent"/>
+                </Border>
+            </Grid>
         </Grid>
         
     </Grid>

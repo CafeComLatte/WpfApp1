@@ -10,7 +10,7 @@ namespace Models
     {
         public string ProductName { get; set; }
         public string Contents { get; set; }
-        public string SinglePrice { get; set; }
+        public string Price { get; set; }
         public string TotalPrice { get; set; }
         public string Count { get; set; }
         

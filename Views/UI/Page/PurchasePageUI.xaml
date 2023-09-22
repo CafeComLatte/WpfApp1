@@ -1,4 +1,5 @@
 ﻿<UserControl x:Class="Views.UI.Page.PurchasePageUI"
+             x:Name="xPurchasePageUI"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -85,14 +86,17 @@
                 <DataTemplate>
                     <Border HorizontalAlignment="Stretch" Height="140" BorderThickness="0 0 0 0.3" BorderBrush="LightGray">
                         <control:PurchaseItemControl
+                            PurchaseSearchCommand="{Binding ElementName=xPurchasePageUI, Path=DataContext.PurchaseSearchCommand}"
+                            PurchaseSearchCommandParameter="{Binding .}"
                         PaymentDate="{Binding PaymentDate}"
                         PaymentTime="{Binding PaymentTime}"
                         SysDate="{Binding SysDate}"
                         ProductName="{Binding ProductName}"
                         Contents="{Binding Contents}"
                         Count ="{Binding Count}"
-                        SinglePrice="{Binding SinglePrice}"
+                        Price="{Binding Price}"
                         TotalPrice="{Binding TotalPrice}"
+                        Image="{Binding Image}"
                         />
                     </Border>
                 </DataTemplate>

@@ -5,19 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Common.control
 {
-    public class ProductItemControl : Button
+
+    public class ProductItemControl : Control
     {
+
+
+        
         public ProductItemControl() { 
             this.DefaultStyleKey = typeof(ProductItemControl);  
+        
         }
 
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
+
+            base.MouseDown += this.CustomMouseDown;
+        }
+
+        private void CustomMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ProductSearchCommand.Execute(ProductSearchCommandParameter);
         }
 
         public string Name
@@ -65,6 +78,48 @@ namespace Common.control
 
         public static readonly DependencyProperty SysDateProperty =
           DependencyProperty.Register("SysDate", typeof(string), typeof(ProductItemControl));
+
+
+
+        
+
+        public static readonly DependencyProperty ProductSearchCommandProperty =
+                DependencyProperty.Register(
+                    "ProductSearchCommand",
+                    typeof(ICommand),
+                    typeof(ProductItemControl),
+                    new UIPropertyMetadata(null));
+
+        public ICommand ProductSearchCommand
+        {
+            get
+            {
+                return (ICommand)GetValue(ProductSearchCommandProperty);
+            }
+            set
+            {
+                SetValue(ProductSearchCommandProperty, value);
+            }
+        }
+
+        public static readonly DependencyProperty ProductSearchCommandParameterProperty =
+                DependencyProperty.Register(
+                    "ProductSearchCommandParameter",
+                    typeof(Object),
+                    typeof(ProductItemControl),
+                    new UIPropertyMetadata(null));
+
+        public Object ProductSearchCommandParameter
+        {
+            get
+            {
+                return (Object)GetValue(ProductSearchCommandParameterProperty);
+            }
+            set
+            {
+                SetValue(ProductSearchCommandParameterProperty, value);
+            }
+        }
 
     }
 }

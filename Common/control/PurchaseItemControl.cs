@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Common.control
 {
-    public class PurchaseItemControl : Button
+    public class PurchaseItemControl : Control
     {
         public PurchaseItemControl() { 
             this.DefaultStyleKey = typeof(PurchaseItemControl);   
@@ -18,6 +19,51 @@ namespace Common.control
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
+
+            base.MouseDown += this.CustomMouseDown;
+        }
+
+        private void CustomMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            PurchaseSearchCommand.Execute(PurchaseSearchCommandParameter);
+        }
+
+        public static readonly DependencyProperty PurchaseSearchCommandProperty =
+                DependencyProperty.Register(
+                    "PurchaseSearchCommand",
+                    typeof(ICommand),
+                    typeof(PurchaseItemControl),
+                    new UIPropertyMetadata(null));
+
+        public ICommand PurchaseSearchCommand
+        {
+            get
+            {
+                return (ICommand)GetValue(PurchaseSearchCommandProperty);
+            }
+            set
+            {
+                SetValue(PurchaseSearchCommandProperty, value);
+            }
+        }
+
+        public static readonly DependencyProperty PurchaseSearchCommandParameterProperty =
+                DependencyProperty.Register(
+                    "PurchaseSearchCommandParameter",
+                    typeof(Object),
+                    typeof(PurchaseItemControl),
+                    new UIPropertyMetadata(null));
+
+        public Object PurchaseSearchCommandParameter
+        {
+            get
+            {
+                return (Object)GetValue(PurchaseSearchCommandParameterProperty);
+            }
+            set
+            {
+                SetValue(PurchaseSearchCommandParameterProperty, value);
+            }
         }
 
         public string ProductName
@@ -29,14 +75,14 @@ namespace Common.control
         public static readonly DependencyProperty ProductNameProperty =
           DependencyProperty.Register("ProductName", typeof(string), typeof(PurchaseItemControl));
 
-        public string SinglePrice
+        public string Price
         {
-            get { return (string)base.GetValue(SinglePriceProperty); }
-            set { base.SetValue(SinglePriceProperty, value); }
+            get { return (string)base.GetValue(PriceProperty); }
+            set { base.SetValue(PriceProperty, value); }
         }
 
-        public static readonly DependencyProperty SinglePriceProperty =
-          DependencyProperty.Register("SinglePrice", typeof(string), typeof(PurchaseItemControl));
+        public static readonly DependencyProperty PriceProperty =
+          DependencyProperty.Register("Price", typeof(string), typeof(PurchaseItemControl));
 
         public string TotalPrice
         {
