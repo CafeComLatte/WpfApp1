@@ -32,9 +32,11 @@ __Font__ : Naver Font (SIL Open Font License, Version 1.1)
 |-|-|-|
 |<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/937c0201-f3b8-4675-b755-cd1198b8968a">|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/2b33ec4e-c115-409d-bdce-5eafffcd70fc">|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/8afcfdd3-5e71-4417-a54e-4b20da5961d5">|
 
-|상품검색 페이지|구매내역 페이지|
-|-|-|
-|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/cc35d26d-dc47-475e-b455-22e7417451cd">|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/e61c44d2-65c8-4d5b-96e3-ec42ff3871f3">|
+|상품검색 페이지|구매내역 페이지|상품 상세페이지|
+|-|-|-|
+|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/cc35d26d-dc47-475e-b455-22e7417451cd">|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/e61c44d2-65c8-4d5b-96e3-ec42ff3871f3">|<img width="300" height="300" src="https://github.com/CafeComLatte/WpfApp1/assets/145232506/a54ad72d-613e-4a53-afee-5c0ba4650756">|
+
+
 
 
 
