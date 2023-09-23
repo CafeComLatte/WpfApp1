@@ -1,5 +1,6 @@
 ﻿using Common;
 using CommunityToolkit.Mvvm.Input;
+using Database;
 using Models;
 using System;
 using System.Collections;
@@ -16,18 +17,18 @@ namespace ViewModels.Page
 {
     public class MainPageViewModel : BaseViewModel
     {
-        Queue<EventProduct> TotalEventProductlist;
+        Queue<ProductVO> TotalEventProductlist;
         public MainPageViewModel() {
             Console.WriteLine("MainPageViewModel 생성자 ");
 
-            TotalEventProductlist = new Queue<EventProduct>(MockUpData.EventProducts);
-            EventProductCollection = new ObservableCollection<EventProduct>(MockUpData.EventProducts.Take(4).ToList());
+            TotalEventProductlist = new Queue<ProductVO>(MockUpData.EventProducts);
+            EventProductCollection = new ObservableCollection<ProductVO>(MockUpData.EventProducts.Take(4).ToList());
             
             EventContentCollection = new ObservableCollection<EventContent>(MockUpData.EventContents);
         }
 
-        private ObservableCollection<EventProduct> _eventProductCollection;
-        public ObservableCollection<EventProduct> EventProductCollection {
+        private ObservableCollection<ProductVO> _eventProductCollection;
+        public ObservableCollection<ProductVO> EventProductCollection {
             get => _eventProductCollection;
             set => SetProperty(ref _eventProductCollection, value);
         }

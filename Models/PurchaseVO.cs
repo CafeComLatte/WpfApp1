@@ -8,6 +8,7 @@ namespace Models
 {
     public class PurchaseVO
     {
+        public string Id {  get; set; }
         public string ProductName { get; set; }
         public string Contents { get; set; }
         public string Price { get; set; }

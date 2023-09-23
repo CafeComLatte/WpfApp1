@@ -69,31 +69,5 @@ namespace ViewModels
             }
         }
 
-        private RelayCommand _saveCommand;
-        public RelayCommand SaveCommand
-        {
-            get
-            {
-                return _saveCommand ??
-                    (_saveCommand = new RelayCommand(
-                        () =>
-                        {
-                            if (product.updateProductList(Item, _originItem, selectFlag) > 0)
-                            {
-                                MessageBox.Show("저장 성공!!!", "데이터처리 결과");
-                                WeakReferenceMessenger.Default.Send<object, string>("ClosePopup");
-                                PopupVM = null;
-                            }
-                            else
-                            {
-                                MessageBox.Show("저장 실패", "데이터처리 결과");
-                            }
-
-                            WeakReferenceMessenger.Default.Send<object, string>("ClosePopup");
-                            PopupVM = null;
-                        }));
-            }
-        }
-
     }
 }
