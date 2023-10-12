@@ -21,7 +21,7 @@ namespace Database
                 {
                     conn.Open();
 
-                    SqlCommand command = new SqlCommand("Select * from event_content", conn);
+                    SqlCommand command = new SqlCommand("Select * from event", conn);
 
                     SqlDataAdapter adapter = new SqlDataAdapter();
 
